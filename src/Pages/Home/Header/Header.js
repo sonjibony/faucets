@@ -4,9 +4,13 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import {FaUserCircle } from 'react-icons/fa';
 import { Link } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Header = () => {
+  const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
+
   return (
+
     <section>
 
     <Navbar className="bg-light">
@@ -49,10 +53,16 @@ const Header = () => {
           </div>
 <button className="btn fw-bold" style={{border:"2px solid #9b1fe9 ", color:"#9b1fe9", borderRadius:"3px"}}>Connect Wallet</button>
         </Navbar.Collapse>
+{
+  isAuthenticated ? <button className="btn ms-1" onClick={() => logout({ returnTo: window.location.origin })}>
+  Log Out
+</button> :  <FaUserCircle onClick={() => loginWithRedirect()} className="ms-2"  style={{fontSize:"40px", color:"grey"}}></FaUserCircle>
+}
+        
+            
 
-        <Link to="/login">
-            <FaUserCircle className="ms-2"  style={{fontSize:"40px", color:"grey"}}></FaUserCircle>
-        </Link>
+            
+        
       </Container>
     </Navbar>
     
