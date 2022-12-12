@@ -1,14 +1,17 @@
-import { Button } from "bootstrap";
 import React from "react";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import {FaUserCircle } from 'react-icons/fa';
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <Navbar>
+    <section>
+
+    <Navbar className="bg-light">
       <Container>
-        <Navbar.Brand className="fs-2 fw-bold" href="#home" style={{color:"#9b1fe9"}}>Faucets</Navbar.Brand>
+        <Navbar.Brand className="fs-2 fw-bold" href="/" style={{color:"#9b1fe9"}}>Faucets</Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
           <div className="me-3">
@@ -46,11 +49,14 @@ const Header = () => {
           </div>
 <button className="btn fw-bold" style={{border:"2px solid #9b1fe9 ", color:"#9b1fe9", borderRadius:"3px"}}>Connect Wallet</button>
         </Navbar.Collapse>
-        <div>
-            Login
-        </div>
+
+        <Link to="/login">
+            <FaUserCircle className="ms-2"  style={{fontSize:"40px", color:"grey"}}></FaUserCircle>
+        </Link>
       </Container>
     </Navbar>
+    
+    </section>
   );
 };
 
