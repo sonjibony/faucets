@@ -3,10 +3,13 @@ import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import {FaUserCircle } from 'react-icons/fa';
-import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 
+//navbar
+
 const Header = () => {
+
+  //authentication implemented through auth0
   const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
 
   return (
